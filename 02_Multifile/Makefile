@@ -17,9 +17,12 @@ README:	prog
 		./$< 2> $@
 
 test:	prog prog-a prog-so
-		./prog > prog_0_output.txt
-		./prog-a > prog-a_0_output.txt
-		LD_LIBRARY_PATH=`pwd` ./prog-so > prog-so_0_output.txt
+		./prog 2> prog_0_output.txt
+		./prog-a 2> prog-a_0_output.txt
+		LD_LIBRARY_PATH=`pwd` ./prog-so 2> prog-so_0_output.txt
+		sed -i 's/\<prog\>//g' prog_0_output.txt
+		sed -i 's/\<prog-a\>//g' prog-a_0_output.txt
+		sed -i 's/\<prog-so\>//g' prog-so_0_output.txt
 		cmp prog_0_output.txt prog-a_0_output.txt > prog_prog-a_0_diff.txt
 		cmp prog_0_output.txt prog-so_0_output.txt > prog_prog-so_0_diff.txt
 		cmp prog-a_0_output.txt prog-so_0_output.txt > prog-a_prog-so_0_diff.txt
