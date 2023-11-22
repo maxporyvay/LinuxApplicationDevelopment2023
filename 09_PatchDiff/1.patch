@@ -1,0 +1,11 @@
+--- lab0.c	2023-11-22 14:05:52.213632840 +0300
++++ lab1.c	2023-11-22 14:06:07.625448045 +0300
+@@ -7,7 +7,7 @@
+ {
+     srand(time(NULL));
+ 
+-    int room_cnt = 6;
++    int room_cnt = atoi(argv[1]);
+     int maze_size = room_cnt * 2 + 1;
+ 
+     char **maze = (char**)malloc(maze_size * sizeof(char*));

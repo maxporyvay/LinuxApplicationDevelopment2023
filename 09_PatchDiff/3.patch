@@ -1,0 +1,28 @@
+--- lab2.c	2023-11-22 14:07:08.128814723 +0300
++++ lab3.c	2023-11-22 14:08:01.440368646 +0300
+@@ -1,13 +1,13 @@
+ #include <stdio.h>
+-#include <time.h>
+ #include <stdlib.h>
+ #include <stdbool.h>
+ 
+ int main(int argc, char* argv[])
+ {
+-    srand(time(NULL));
++    int seed = atoi(argv[1]);
++    srand(seed);
+ 
+-    int room_cnt = atoi(argv[2]);
++    int room_cnt = atoi(argv[3]);
+     int maze_size = room_cnt * 2 + 1;
+ 
+     char **maze = (char**)malloc(maze_size * sizeof(char*));
+@@ -15,7 +15,7 @@
+         maze[i] = (char*)malloc(maze_size * sizeof(char));
+     }
+ 
+-    char *empty_and_wall = argv[1];
++    char *empty_and_wall = argv[2];
+     char wall = empty_and_wall[1];
+     char empty = empty_and_wall[0];
+ 
