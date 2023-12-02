@@ -1,0 +1,1 @@
+autoreconf -fisv && ./configure && make && mkdir -p po/ru_RU/LC_MESSAGES && msgfmt -o po/ru_RU/LC_MESSAGES/bisect.mo po/ru.po && ./src/bisect
